@@ -4,10 +4,9 @@ const msg = ref('Input Text')
 </script>
 
 <template>
-    <h3>テキストを入力すると、ラベルは変更できる。</h3>
+    <p>テキストを入力すると、ラベルは変更できる。</p>
     <input v-model="msg">
     <h2>{{ msg }}</h2>
-    <hr>
 </template>
 
 <style scoped>

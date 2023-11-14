@@ -17,18 +17,21 @@ const formatDate = (date) => {
 </script>
 
 <template>
-    <h3>ボタンをクリックすると、カウントできる。</h3>
+    <p>ボタンをクリックすると、カウントできる。</p>
     <button @click="increment">Count is: {{ count }}</button>
     <br>
     <time :title="date" :datetime="date">
-        Now is {{ formatDate(date) }}.
+        クリック時刻は <span class="font-red">{{ formatDate(date) }}</span> 。
     </time>
-    <hr>
 </template>
 
 <style scoped>
 button {
   font-weight: bold;
   color: red;
+}
+.font-red {
+    font-style: italic;
+    color: red;
 }
 </style>

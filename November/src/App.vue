@@ -3,6 +3,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import ClickCount from './components/ClickCount.vue'
 import InputText from './components/InputText.vue'
+import ItemList from './components/ItemList.vue'
 </script>
 
 <template>
@@ -22,12 +23,14 @@ import InputText from './components/InputText.vue'
     <header>
       <h1>下は実装したコンポーネント：</h1>
     </header>
-    <hr>
     <section>
       <input-text />
     </section>
     <section>
       <click-count />
+    </section>
+    <section>
+      <item-list />
     </section>
   </article>
 </template>
