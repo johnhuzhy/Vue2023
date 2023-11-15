@@ -18,17 +18,18 @@ const formatDate = (date) => {
 
 <template>
     <p>ボタンをクリックすると、カウントできる。</p>
-    <button @click="increment">Count is: {{ count }}</button>
+    <button class="btn-margin btn-square" @click="increment">カウント数: {{ count }}</button>
     <br>
-    <time :title="date" :datetime="date">
-        クリック時刻は <span class="font-red">{{ formatDate(date) }}</span> 。
-    </time>
+    <p v-if="count !== 0">
+      <time :title="date" :datetime="date">
+          クリック時刻は <span class="font-red">{{ formatDate(date) }}</span> 。
+      </time>
+    </p>
 </template>
 
 <style scoped>
 button {
   font-weight: bold;
-  color: red;
 }
 .font-red {
     font-style: italic;

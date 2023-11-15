@@ -69,6 +69,28 @@ section p {
   transform: translateY(4px);/*下に動く*/
   border-bottom: none;/*線を消す*/
 }
+.btn-square:disabled {
+  /*ボタンを無効するとき*/
+  background: #ccc;
+  cursor: not-allowed;
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.btn-flat-border {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  background: #fffcf4;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+}
+.btn-flat-border:hover {
+  background: #67c5ff;
+  color: white;
+}
 
 ul, ol {
   background: #fffcf4;

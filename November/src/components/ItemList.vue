@@ -1,13 +1,13 @@
 <script setup>
 import { ref } from 'vue'
-const header = ref('Front FrameWork List!')
+const header = ref('フロントのリストです：')
 const items = ref([
     {id: 1, label: "Angular"},
     {id: 2, label: "React"},
     {id: 3, label: "Vue"}
 ])
+const editing = ref(false)
 const newItem = ref("")
-const scriptType = ref([])
 
 const addItem = ()=>{
     if (newItem.value !== "") {
@@ -15,19 +15,29 @@ const addItem = ()=>{
     }
     newItem.value = ""
 }
+const doEdit = (e)=> {
+    editing.value = e
+    newItem.value = ""
+}
 </script>
 
 <template>
-    <h2>{{ header }}</h2>
-    <input type="text" v-model.trim="newItem" v-on:keyup.enter="addItem" placeholder="Input New Item">
-    <button class="btn-margin btn-square" v-on:click="addItem">Add</button>
-    <br>
+    <header>
+        <h2>{{ header }}</h2>
+        <button v-if="editing" class="btn-margin  btn-flat-border" @click="doEdit(false)">
+            キャンセル
+        </button>
+        <button v-else class="btn-margin  btn-flat-border" @click="doEdit(true)">
+            追加
+        </button>
+    </header>
+    <form v-if="editing" @submit.prevent="addItem">
+        <input type="text" v-model.trim="newItem" v-on:keyup.enter="addItem" placeholder="Input New Item">
+        <button v-bind:disabled="newItem.length === 0" class="btn-margin btn-square">Add</button>
+    </form>
     <ul>
         <li v-for="{id, label} in items" :key="id">{{ label }}</li>
     </ul>
-    <label><input type="checkbox" value="typescript" v-model="scriptType">TypeScript</label>
-    <label><input type="checkbox" value="javascript" v-model="scriptType">JavaScript</label>
-    <p>{{ scriptType }}</p>
 </template>
 
 <style scoped>
